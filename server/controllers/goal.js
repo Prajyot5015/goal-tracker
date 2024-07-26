@@ -28,4 +28,16 @@ const postGoal = async (req,res)=>{
 }
 
 
-export {postGoal}
+const deleteGoal = async (req, res)=>{
+    const {id} = req.params;
+
+    await Goal.deleteOne({_id: id})
+
+    return  res.json({
+        success: true,
+        message: `Goal Deleted Successfully`,
+        data: null
+    })
+}
+
+export {postGoal, deleteGoal}
