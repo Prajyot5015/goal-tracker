@@ -5,7 +5,7 @@ import dotenv from "dotenv"
 dotenv.config();
 
 import { postSignup, postLogin} from "./controllers/user.js";
-import { deleteGoal, postGoal } from "./controllers/goal.js";
+import { deleteGoal, getGoal, postGoal, putGoal } from "./controllers/goal.js";
 
 const app = express();
 app.use(express.json());
@@ -33,12 +33,11 @@ app.post("/login", postLogin )
 
 app.post("/goal", postGoal )
 
+app.get("/goals", getGoal)
+
+app.put("/goal/:id", putGoal)
+
 app.delete("/goal/:id", deleteGoal)
-
-
-
-
-
 
 
 
