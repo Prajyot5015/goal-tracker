@@ -64,6 +64,7 @@ function GoalCard({ _id, goal, description, createdAt, loadGoals }) {
         <img src={RemoveImg} alt='Img' className='add-remove-img' onClick={deleteGoal}/>
       </div>
 
+      <Toaster />
     </div>
   )
 }
