@@ -31,41 +31,43 @@ function Login() {
   }
 
   return (
-    <div className="login-container">
-      <h2 >User Login</h2>
+    <div className='login-main-div'>
+      <div className="login-container">
+        <h2 >User Login</h2>
 
-      <div className='btn-container'>
-        <button type='button' className='login-btn'>Login</button>
-        <Link to='/signup' className='btn-regi'>Signup </Link>
+        <div className='btn-container'>
+          <button type='button' className='login-btn'>Login</button>
+          <Link to='/signup' className='btn-regi'>Signup </Link>
+        </div>
+
+        <form >
+          <input
+            type='email'
+            placeholder='Email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+          <input
+            type='password'
+            placeholder='Password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <button
+            type='button'
+            onClick={loginNow}
+            className='login-button'
+          >
+            Login
+          </button>
+        </form>
+
+        <Link to='/signup' className='a-bottom' >Don't have an account? Signup</Link>
+
+        <Toaster />
       </div>
-
-      <form >
-        <input
-          type='email'
-          placeholder='Email'
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-
-        <input
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-
-        <button
-          type='button'
-          onClick={loginNow}
-          className='login-button'
-        >
-          Login
-        </button>
-      </form>
-
-      <Link to='/signup'className='a-bottom' >Don't have an account? Signup</Link>
-
-      <Toaster />
     </div>
   )
 }

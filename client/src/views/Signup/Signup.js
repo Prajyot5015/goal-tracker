@@ -32,9 +32,10 @@ function Signup() {
             toast.error(response.data.message)
         }
     }
-
+    
     return (
-        <div className="login-container">
+        <div className='signup-main-div'>
+            <div className="login-container">
             <h2 >User Registration</h2>
 
             <div className='btn-container'>
@@ -76,6 +77,7 @@ function Signup() {
             <Link to='/login' className='a-bottom' >Already have an account? Login</Link>
 
             <Toaster />
+        </div>
         </div>
     )
 }

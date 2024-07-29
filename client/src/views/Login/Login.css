@@ -1,12 +1,13 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+}
+.login-main-div{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
-
 .login-container {
     overflow: hidden;
     max-width: 390px;
