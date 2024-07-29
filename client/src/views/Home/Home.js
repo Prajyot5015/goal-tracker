@@ -72,7 +72,7 @@ function Home() {
             />)
           })
         }
-        <Link to='/add-transaction'>
+        <Link to='/add-goal'>
           <img src={ImgAdd} alt='Add Transaction' className='add-btn' />
         </Link>
       </div>

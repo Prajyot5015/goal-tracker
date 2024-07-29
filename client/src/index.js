@@ -6,6 +6,7 @@ import ErrorImg from './imgs/e.jpg'
 import Home from "./views/Home/Home"
 import Login from './views/Login/Login';
 import Signup from './views/Signup/Signup'
+import AddGoal from './views/AddGoal/AddGoal';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path : "/signup",
     element : <Signup />
+  },
+  {
+    path : "/add-goal",
+    element : <AddGoal />
   },
   {
     path : "*",
