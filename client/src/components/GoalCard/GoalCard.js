@@ -1,4 +1,6 @@
 import React from 'react'
+import toast, {Toaster} from "react-hot-toast";
+import axios from "axios";
 import './GoalCard.css'
 import { useState, useEffect } from 'react';
 import RightImg from './correct.png'
@@ -31,6 +33,15 @@ function GoalCard({ _id, goal, description, createdAt, loadGoals }) {
     }
   };
 
+  const deleteGoal = async () => {
+    const response = await axios.delete(`${process.env.REACT_APP_API_URL}/goal/${_id}`)
+
+    toast.success(response.data.message)
+
+    loadGoals()
+  }
+  
+
   return (
     <div className='goal-card'>
       <div className='header-content'>
@@ -49,7 +60,7 @@ function GoalCard({ _id, goal, description, createdAt, loadGoals }) {
       <div>
         <img src={RightImg} alt='Img' className='add-remove-img' onClick={handleRightImgClick} />
         <img src={UpdateImg} alt='Img' className='add-remove-img' />
-        <img src={RemoveImg} alt='Img' className='add-remove-img' />
+        <img src={RemoveImg} alt='Img' className='add-remove-img' onClick={deleteGoal}/>
       </div>
 
     </div>
