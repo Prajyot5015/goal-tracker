@@ -2,14 +2,15 @@ import React from 'react'
 import './GoalCard.css'
 import { useState, useEffect } from 'react';
 import RightImg from './correct.png'
-import RemoveImg from './remove.png'
+import RemoveImg from './bin.png'
+import UpdateImg from './updated.png'
 
 function GoalCard({ _id, goal, description, createdAt, loadGoals }) {
 
   const [rangeValue, setRangeValue] = useState(0);
 
   useEffect(() => {
-  
+
     const storedRangeValue = localStorage.getItem(`rangeValue_${_id}`);
     if (storedRangeValue !== null) {
       setRangeValue(parseInt(storedRangeValue, 10));
@@ -17,16 +18,16 @@ function GoalCard({ _id, goal, description, createdAt, loadGoals }) {
   }, [_id]);
 
   useEffect(() => {
-    
+
     localStorage.setItem(`rangeValue_${_id}`, rangeValue);
   }, [rangeValue, _id]);
 
   const handleRightImgClick = () => {
-    if(rangeValue === 100){
+    if (rangeValue === 100) {
       setRangeValue(100);
     }
-    else{
-      setRangeValue(rangeValue+5);
+    else {
+      setRangeValue(rangeValue + 5);
     }
   };
 
@@ -41,13 +42,14 @@ function GoalCard({ _id, goal, description, createdAt, loadGoals }) {
           type="range"
           value={rangeValue}
           className="range"
-          onChange={(e)=>{setRangeValue(e.target.value)}}
+          onChange={(e) => { setRangeValue(e.target.value) }}
         />
         <p className='percentage'>{rangeValue}%</p>
       </div>
       <div>
+        <img src={RightImg} alt='Img' className='add-remove-img' onClick={handleRightImgClick} />
+        <img src={UpdateImg} alt='Img' className='add-remove-img' />
         <img src={RemoveImg} alt='Img' className='add-remove-img' />
-        <img src={RightImg} alt='Img' className='add-remove-img'  onClick={handleRightImgClick} />
       </div>
 
     </div>

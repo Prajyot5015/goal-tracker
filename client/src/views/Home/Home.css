@@ -33,9 +33,9 @@
     position: relative;
 }
 .add-btn{
-    position: absolute;
-    right:  10px;
-    bottom:  10px;
+    position: sticky;
+    left:  110%;
+    bottom:  1px;
     height: 50px;
     width: 50px;
     border-radius: 50%;

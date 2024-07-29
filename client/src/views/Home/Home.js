@@ -44,7 +44,7 @@ function Home() {
   return (
     <div>
       <h1 className='user-name-title'> Hello {user.fullName} </h1>
-      <h2 className='home-heading'>Welcome to the Expense Tracker</h2>
+      <h2 className='home-heading'>Welcome to the Goal Tracker</h2>
 
       <span className='logout-btn' onClick={() => {
         localStorage.clear()
