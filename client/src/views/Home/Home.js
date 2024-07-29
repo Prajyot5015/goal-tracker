@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import ImgAdd from "./add.png"
+import ImgAdd from "./plus.png"
 import toast, { Toaster } from 'react-hot-toast'
 import "./Home.css"
 import GoalCard from './../../components/GoalCard/GoalCard'
