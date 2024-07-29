@@ -2,7 +2,7 @@ import React from 'react'
 import axios from "axios"
 import "./AddGoal.css"
 import { useState, useEffect } from 'react'
-import toast, {Toaster} from "react-hot-toast"
+import toast, { Toaster } from "react-hot-toast"
 
 
 function AddGoal() {
@@ -21,6 +21,26 @@ function AddGoal() {
             window.location.href = '/login'
         }
     }, [])
+
+
+    const addGoal = async () => {
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/goal`, {
+            goal,
+            description
+        })
+
+        toast.success(response.data.message)
+
+       setGoal('')
+       setDescription('')
+
+        setTimeout(() => {
+            window.location.href = '/'
+        }, 2000)
+    }
+
+
+
     return (
         <div className='login-main-div'>
             <div className="login-container">
@@ -41,7 +61,7 @@ function AddGoal() {
                     />
                     <button
                         type='button'
-                       
+                        onClick={addGoal}
                         className='login-button'
                     >
                         Add
