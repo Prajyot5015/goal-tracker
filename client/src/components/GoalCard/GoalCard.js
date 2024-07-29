@@ -1,5 +1,6 @@
 import React from 'react'
 import toast, {Toaster} from "react-hot-toast";
+import { Link } from 'react-router-dom'
 import axios from "axios";
 import './GoalCard.css'
 import { useState, useEffect } from 'react';
@@ -59,7 +60,7 @@ function GoalCard({ _id, goal, description, createdAt, loadGoals }) {
       </div>
       <div>
         <img src={RightImg} alt='Img' className='add-remove-img' onClick={handleRightImgClick} />
-        <img src={UpdateImg} alt='Img' className='add-remove-img' />
+        <Link to={`/update/${_id}`} ><img src={UpdateImg} alt='Img' className='add-remove-img' /></Link>
         <img src={RemoveImg} alt='Img' className='add-remove-img' onClick={deleteGoal}/>
       </div>
 
