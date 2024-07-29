@@ -1,6 +1,6 @@
 import React from 'react'
 import './GoalCard.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import RightImg from './correct.png'
 import RemoveImg from './remove.png'
 
@@ -8,9 +8,18 @@ function GoalCard({ _id, goal, description, createdAt, loadGoals }) {
 
   const [rangeValue, setRangeValue] = useState(0);
 
-  const handleRangeChange = (event) => {
-    setRangeValue(event.target.value);
-  };
+  useEffect(() => {
+  
+    const storedRangeValue = localStorage.getItem(`rangeValue_${_id}`);
+    if (storedRangeValue !== null) {
+      setRangeValue(parseInt(storedRangeValue, 10));
+    }
+  }, [_id]);
+
+  useEffect(() => {
+    
+    localStorage.setItem(`rangeValue_${_id}`, rangeValue);
+  }, [rangeValue, _id]);
 
   const handleRightImgClick = () => {
     if(rangeValue === 100){
@@ -32,7 +41,7 @@ function GoalCard({ _id, goal, description, createdAt, loadGoals }) {
           type="range"
           value={rangeValue}
           className="range"
-          onChange={handleRangeChange}
+          onChange={(e)=>{setRangeValue(e.target.value)}}
         />
         <p className='percentage'>{rangeValue}%</p>
       </div>
