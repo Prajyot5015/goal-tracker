@@ -1,6 +1,6 @@
 # Goal Tracker
 
-![Screenshot](./src/imgs/Screenshot%20(247).png)
+![Screenshot](./client/src/imgs/Screenshot%20(247).png)
 
 ## Introduction
 
